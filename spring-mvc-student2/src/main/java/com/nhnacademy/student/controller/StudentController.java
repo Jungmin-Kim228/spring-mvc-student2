@@ -53,20 +53,20 @@ public class StudentController {
     public String viewStudent(@ModelAttribute("student") Student student, ModelMap modelMap) {
 
         modelMap.put("student", student);
-        return "studentView";
+        return "thymeleaf/studentView";
     }
 
     @GetMapping(value = "/{studentId}", params = "hideScore=yes")
     public String hideScoreConvert(@ModelAttribute Student student, Model model) {
         model.addAttribute("student", Student.constructMaskedStudent(student));
-        return "studentView";
+        return "thymeleaf/studentView";
     }
 
     @GetMapping("/{studentId}/modify")
     public String studentModifyForm(@ModelAttribute("student") Student student,
                                     Model model) {
         model.addAttribute("student", student);
-        return "studentModify";
+        return "thymeleaf/studentModify";
     }
 
     // binding = false 해주면 ModelAttribute가 사용자 입력을 받지 않음
@@ -88,7 +88,7 @@ public class StudentController {
         studentRepository.modify(student);
 
         map.put("student", student);
-        return "studentView";
+        return "thymeleaf/studentView";
     }
 
     @ExceptionHandler(StudentNotFoundException.class)

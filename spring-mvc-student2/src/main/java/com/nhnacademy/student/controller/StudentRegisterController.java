@@ -30,7 +30,7 @@ public class StudentRegisterController {
 
     @GetMapping
     public String studentRegisterForm() {
-        return "studentRegister";
+        return "thymeleaf/studentRegister";
     }
 
     @PostMapping
@@ -44,7 +44,7 @@ public class StudentRegisterController {
             studentRepository.register(studentRequest.getName(), studentRequest.getEmail(),
                 studentRequest.getScore(), studentRequest.getComment());
 
-        ModelAndView mav = new ModelAndView("studentView");
+        ModelAndView mav = new ModelAndView("thymeleaf/studentView");
         mav.addObject("student", student);
 
         return mav;
