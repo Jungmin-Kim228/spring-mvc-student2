@@ -3,6 +3,8 @@ package com.nhnacademy.student.config;
 import com.nhnacademy.student.Base;
 import com.nhnacademy.student.repository.StudentRepository;
 import com.nhnacademy.student.repository.StudentRepositoryImpl;
+import com.nhnacademy.student.repository.UserRepository;
+import com.nhnacademy.student.repository.UserRepositoryImpl;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,6 +16,14 @@ import org.springframework.stereotype.Controller;
 @ComponentScan(basePackageClasses = Base.class,
     excludeFilters = { @ComponentScan.Filter(Controller.class)})
 public class RootConfig {
+
+    @Bean
+    public UserRepository userRepository() {
+        UserRepository userRepository = new UserRepositoryImpl();
+        userRepository.addUser("admin", "12345");
+
+        return userRepository;
+    }
 
     @Bean
     public StudentRepository studentRepository() {
