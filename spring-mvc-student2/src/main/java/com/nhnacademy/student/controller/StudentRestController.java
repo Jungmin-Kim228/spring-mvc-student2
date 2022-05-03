@@ -40,6 +40,7 @@ public class StudentRestController {
     }
 
     @PutMapping("/students/{studentId}")
+    @ResponseStatus(HttpStatus.OK)
     public void putStudent(@RequestBody StudentModifierRequest studentRequest,
                            @PathVariable("studentId") long studentId) {
         Student student = new Student(studentId,

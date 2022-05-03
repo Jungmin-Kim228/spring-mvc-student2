@@ -1,9 +1,21 @@
-POST http://localhost:8080/users HTTP/1.1
+POST http://localhost:8080/students HTTP/1.1
 Content-type: application/json
 
 {
-  "id": "dongmyo",
-  "password": "67890",
-  "age": 19,
-  "name": "동묘"
+  "name": "동묘",
+  "email": "a@a.com",
+  "score": 10,
+  "comment": "comddddment"
+}
+
+###
+
+PUT http://localhost:8080/students/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "학생",
+  "email": "b@b.com",
+  "score": 90,
+  "comment": "sdjfklsjdflskdf"
 }
