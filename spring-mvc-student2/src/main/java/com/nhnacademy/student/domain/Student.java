@@ -19,7 +19,7 @@ public class Student {
         this.comment = comment;
     }
 
-    private Student(long id, String name, String email, int score, String comment) {
+    public Student(long id, String name, String email, int score, String comment) {
         this.id = id;
         this.name = name;
         this.email = email;
